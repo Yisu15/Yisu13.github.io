@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No estas molesta si?</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fce4ec;
+        }
+
+        #marco {
+            border: 10px solid pink;
+            width: 90%; /* Ajustar el ancho para móviles */
+            height: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff0f5;
+            text-align: center;
+            padding: 20px; /* Espaciado interno */
+            box-sizing: border-box; /* Para que el padding no afecte el tamaño total */
+        }
+
+        h1 {
+            font-size: 1.5rem; /* Tamaño de fuente más pequeño para móviles */
+            color: #d81b60;
+        }
+
+        /* Contenedor para los botones */
+        #botones {
+            display: flex;
+            flex-direction: column; /* Cambiar a columna */
+            justify-content: center;
+            margin-top: 20px; /* Espacio entre el texto y los botones */
+        }
+
+        .boton {
+            padding: 10px 20px; /* Ajustar padding para móviles */
+            font-size: 1rem; /* Tamaño de fuente más pequeño */
+            cursor: pointer;
+            border: 2px solid #d81b60;
+            background-color: #f8bbd0;
+            color: #880e4f;
+            transition: background-color 0.3s ease;
+            margin: 10px 0; /* Separación vertical entre botones */
+        }
+
+        .boton:hover {
+            background-color: #f48fb1;
+        }
+
+        #no {
+            position: absolute;
+        }
+
+        /* Estilo para la imagen */
+        img {
+            width: 150px; /* Ajustar tamaño de imagen para móviles */
+            height: auto;
+            margin-bottom: 20px; /* Espacio entre la imagen y la pregunta */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="marco">
+        <!-- Imagen de Imgur -->
+        <img src="raton.gif" alt="Imagen" id="imagen">
+        <h1>Se que estas molesta pero... ¿Me quieres muchito?</h1>
+        <!-- Contenedor para los botones -->
+        <div id="botones">
+            <button class="boton" id="si">Sí</button>
+            <button class="boton" id="no">No</button>
+        </div>
+    </div>
+
+    <script>
+        const marco = document.getElementById('marco');
+        const siBtn = document.getElementById('si');
+        const noBtn = document.getElementById('no');
+
+        siBtn.addEventListener('click', () => {
+            // Cambiar la imagen y el texto cuando presiona "Sí"
+            marco.innerHTML = `
+                <img src="https://media.tenor.com/wWYDcbdOMWQAAAAM/cat-kiss-kiss-cat.gif" alt="Imagen de agradecimiento">
+                <h1>"Si se que estas molesta, se que me pase y no pense en ti, no es primera vez que pasa esto entre tu y yo, siempre prometo cambiar pero volvemos a lo mismo, esta vez me saco el corazon y te quiero hacer sentir mejor, llevo rato escribiendo este codigo para ti para intentar contentarte, nose si lo hara o no, pero con solo mandartelo es un intento, te quiero muchisimo, y quisiera salir contigo mañana y recompensarte mi mala actitud"</h1>`;
+        });
+
+        noBtn.addEventListener('click', () => {
+            // Generar una nueva posición aleatoria dentro del viewport
+            const randomX = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const randomY = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        });
+    </script>
+
+</body>
+</html>
